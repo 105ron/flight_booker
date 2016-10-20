@@ -22,7 +22,8 @@ class Flight < ApplicationRecord
     flight_date = Date.strptime(date, "%d/%m/%Y")
     Flight.where('origin_id = ?', origin).
        where('destination_id = ?', destination).
-       where(datetime: flight_date.beginning_of_day..flight_date.end_of_day)
+       where(datetime: flight_date.beginning_of_day..flight_date.end_of_day).
+       order('datetime asc')
   end
 
 end
