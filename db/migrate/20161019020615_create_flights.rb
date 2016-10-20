@@ -8,8 +8,8 @@ class CreateFlights < ActiveRecord::Migration[5.0]
       t.time :duration
       t.timestamps
     end
-    add_index :flights, :origin
-    add_index :flights, :destination
+    add_index :flights, :origin_id
+    add_index :flights, :destination_id
     add_index :flights, :datetime
   end
 end
