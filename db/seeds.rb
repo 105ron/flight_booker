@@ -27,14 +27,22 @@ Airport.create!(name:  "Canberra Airport",
 
 Airport.create!(name:  "Richmond Air Base",
                 code: "YSRC")
+
+
 flight_no = 120
-(1..10).each do |departure|
-	(1..10).each do |destination|
-		duration = "#{rand(0..6)}:#{rand(0..59)}:00"
-		date = Faker::Time.forward(28, :morning)
-		if destination != departure
-			Flight.create!(number: (120 + flight_no), origin_id: departure, destination_id: destination, datetime: date, duration: duration)
+day = 1
+4.times do #4 flights a day
+	28.times do #4 weekss worth of flights
+		(1..10).each do |departure|
+			(1..10).each do |destination|
+				duration = "#{rand(0..3)}:#{rand(0..59)}:00"
+				date = Faker::Time.between((DateTime.now + day), (DateTime.now + day +1)) 
+				if destination != departure
+					Flight.create!(number: (120 + flight_no), origin_id: departure, destination_id: destination, datetime: date, duration: duration)
+				end
+				flight_no += 3
+			end
 		end
-		flight_no += 3
 	end
+	day += 1
 end
