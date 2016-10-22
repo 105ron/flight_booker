@@ -33,7 +33,7 @@ flight_no = 120
 
 4.times do #4 flights a day
 	day = 1
-	28.times do #4 weekss worth of flights
+	21.times do #3 weekss worth of flights
 			(1..10).each do |departure|
 				(1..10).each do |destination|
 					duration = "#{rand(1..3)}:#{rand(0..59)}:00"
