@@ -6,6 +6,7 @@ class FlightsController < ApplicationController
     if params[:origin_id]
    		@flights = Flight.find_flights(params[:date],
    										  params[:origin_id], params[:destination_id])
+      @people = params[:people]
       #debugger
 
    	end
