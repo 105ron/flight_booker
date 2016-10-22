@@ -7,16 +7,32 @@
 	Date      
 	<%= select_tag(:date, options_for_select(@dates)) %>
 	Persons
-	<select name="people" id="pepole"><option value="1">1</option>
-	<option value="2">2</option>
-	<option value="3">3</option>
-	<option value="4">4</option></select>
-	<%= submit_tag("Search") %>
+	<%= select_tag(:people, options_for_select(@people)) %>
+<%= submit_tag("Search") %>
 <% end %>
 
 <% if @flights %>
-	<% @flights.each do |f| %>
-		<%= f.number %>
-		<%= f.datetime %><br>
-	<% end %>
-<%end %>
+
+
+	<table>
+		<th> </th>
+		<th>Flight Number</th>
+		<th>From Airport</th>
+		<th>To Airport</th>
+		<th>Date</th>
+		<th>Time</th>
+		<th>Duration</th>
+		<%= collection_radio_buttons(:flight, :id, @flights, :id, :number) do |b| %>
+	   <tr>
+		    <td><%= b.radio_button %></td>
+		    <td><%= b.label %> </td>
+		    <td><%= b.object.from_airport.name %></td>
+		    <td><%= b.object.to_airport.name %></td>
+		    <td><%= b.object.format_date %></td>
+		    <td><%= b.object.format_time %></td>
+		    <td><%= b.object.format_duration %></td>
+		  </tr>
+	  <% end %>
+	</table>
+
+<% end %>

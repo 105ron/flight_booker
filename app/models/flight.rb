@@ -9,13 +9,27 @@ class Flight < ApplicationRecord
   validates :origin_id, presence: true
   validates :destination_id, presence: true
   
-  def self.unique_formatted
+  
+
+  def self.unique_formatted #Array of unique dates for date drop down menu
     array = [] 
     self.dates.each do |x| 
-    	array << x.datetime.strftime("%d/%m/%Y") unless 
-          array.include?(x.datetime.strftime("%d/%m/%Y"))
+    	array << x.format_date unless 
+          array.include?(x.format_date)
     end
     return array
+  end
+
+  def format_date
+    self.datetime.strftime("%d/%m/%Y")
+  end
+
+  def format_time
+    self.datetime.strftime("%I:%M %P")
+  end
+
+  def format_duration
+    "#{self.duration.strftime("%l:%M")} hrs" 
   end
 
   def self.find_flights(date, origin, destination)
