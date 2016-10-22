@@ -1,0 +1,19 @@
+<br>
+<table>
+	<th>Flight Number</th>
+	<th>From Airport</th>
+	<th>To Airport</th>
+	<th>Date</th>
+	<th>Time</th>
+	<th>Duration</th>
+	<tr>
+		<td><%= @flight.number %></tdd>
+		<td><%= @flight.from_airport.name %></td>
+		<td><%= @flight.to_airport.name %></td>
+		<td><%= @flight.format_date %></td>
+		<td><%= @flight.format_time %></td>
+		<td><%= @flight.format_duration %></td>
+	</tr>
+</table>
+<br>
+<br>

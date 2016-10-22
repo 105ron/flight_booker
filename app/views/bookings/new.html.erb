@@ -1,2 +1,6 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Rails Airways New Booking</h1>
+<% if @flight.nil? %>
+	<%= render 'shared/no_search_results' %>
+<% else %>
+	<%= render 'flights_table' %>
+<% end %>
