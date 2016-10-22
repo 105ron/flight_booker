@@ -3,8 +3,10 @@ class Flight < ApplicationRecord
 						 :foreign_key => :origin_id
   belongs_to :to_airport,  :class_name => "Airport",    
   					 :foreign_key => :destination_id
+  has_many :bookings            
+
+
   scope :dates, -> { select(:datetime).distinct.order('datetime asc') }
- # scope :dates2 -> { pluck("distinct date(datetime)").order('datetime asc') }
 
   validates :origin_id, presence: true
   validates :destination_id, presence: true
