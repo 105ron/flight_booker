@@ -1,0 +1,17 @@
+<p>I am the bookings form</p>
+
+<%= form_for @booking do |booking_form| %>
+  <%= booking_form.hidden_field :flight_id, :value => @flight.id %>
+  <% n = 1 %>
+  <% @booking.passengers.each do |pax| %>
+    <%= booking_form.fields_for pax, index: pax.id do |passenger_form|%>
+    	<%= "Passenger #{n}" %><br>
+    	<%= passenger_form.label :name, 'Name:' %>
+    	<%= passenger_form.text_field :name %><br>
+    	<%= passenger_form.label :email, 'Email:' %>
+      <%= passenger_form.text_field :email %><br>
+      <% n += 1 %>
+    <% end %>
+  <% end %>
+  <%= submit_tag("Submit") %>
+<% end %>
