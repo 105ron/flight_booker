@@ -1,0 +1,6 @@
+<h1>Booking successfully created</h1>
+
+<%= render :partial => 'flights_table', :locals => { object: @flight } %>
+
+<%= render :partial => 'users', :locals => { passenger: @passengers, booking: @booking,
+																						flight: @flight } %>

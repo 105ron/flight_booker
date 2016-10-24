@@ -1,0 +1,15 @@
+<br>
+<table>
+	<th>Booking Number</th>
+	<th>Flight number</th>
+	<th>Name</th>
+	<th>Email</th>
+	<% passenger.each do |pax| %>
+		<tr>
+			<td><%= booking.id %></tdd>
+			<td><%= flight.number %></td>
+			<td><%= pax.name %></td>
+			<td><%= pax.email %></td>
+		</tr>
+	<% end %>
+</table>

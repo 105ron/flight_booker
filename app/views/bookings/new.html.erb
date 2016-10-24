@@ -2,7 +2,7 @@
 <% if @flight.nil? %>
 	<%= render 'shared/no_search_results' %>
 <% else %>
-	<%= render 'flights_table' %>
+	<%= render :partial => 'flights_table', :locals => { :object => @flight } %>
 	<br>
 	<%= render 'bookings_form' %>
 <% end %>

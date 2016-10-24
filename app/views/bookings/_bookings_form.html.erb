@@ -1,7 +1,8 @@
-<p>I am the bookings form</p>
+
 
 <%= form_for @booking do |booking_form| %>
   <%= booking_form.hidden_field :flight_id, :value => @flight.id %>
+  <%= booking_form.hidden_field :people, :value => @booking.passengers.length %>
   <% n = 1 %>
   <% @booking.passengers.each do |pax| %>
     <%= booking_form.fields_for pax, index: pax.id do |passenger_form|%>
