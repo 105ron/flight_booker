@@ -1,0 +1,20 @@
+ def create
+    @flight  = Flight.find(posted_params[:flight_id])
+    @booking = Booking.new(posted_params)
+    if @booking.save
+      flash[:success] = "Booking created."
+      passengers = @flight.passengers
+      PassengerMailer.confirmation_email(@flight, @booking, passengers).deliver_now!
+      redirect_to @booking
+    else
+      render :new
+    end
+  end
+
+…
+private
+
+    def posted_params
+      params.require(:booking).permit(:flight_id, :passengers,
+                                      passengers_attributes: [:name, :email])
+    end

@@ -8,7 +8,7 @@
 		<tr>
 			<td><%= booking.id %></tdd>
 			<td><%= flight.number %></td>
-			<td><%= pax.name %></td>
+			<td><%= link_to pax.name, passenger_path(pax.id) %></td>
 			<td><%= pax.email %></td>
 		</tr>
 	<% end %>

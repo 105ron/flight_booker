@@ -1,0 +1,27 @@
+<h1>Rails Airways</h1>
+<h4>You have booked the following flights</h4>
+<p>Thank you for choosing rails airways</p>
+<table>
+	<th>Booking Number</th>
+	<th>Flight number</th>
+	<th>From</th>
+	<th>To</th>
+	<th>Date</th>
+	<th>Time</th>
+	<th>Duration</th>
+	<% @passenger.bookings.each do |booking|  %>
+		<tr>	
+			<td><%= booking.id %></td>
+			<td><%= booking.flight.number %></td>
+			<td><%= booking.flight.from_airport.name %></td>
+			<td><%= booking.flight.to_airport.name %></td>
+			<td><%= booking.flight.format_date %></td>
+			<td><%= booking.flight.format_time %></td>
+			<td><%= booking.flight.format_duration %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+
+<%= link_to "Home", flights_path %>
