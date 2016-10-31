@@ -1,0 +1,15 @@
+ Thank you for choosing Rails Airways, <%= @passenger.name %>
+  
+Your booking was successfly. Flight details are listed below. Checkin closes 30 minutes prior to depature
+
+*Booking Number - *<%= @booking.id %>
+*Flight number - *<%= @booking.flight.number %>
+*From - *<%= @booking.flight.from_airport.name %>
+*To - *<%= @booking.flight.to_airport.name %>
+*Date - *<%= @booking.flight.format_date %>
+*Time - *<%= @booking.flight.format_time %>
+*Duration - *<%= @booking.flight.format_duration %>
+
+To see more, see the booking information page <%=booking_url(@booking)%>.
+    
+Thanks for choosing rails airways and enjoy your flight!

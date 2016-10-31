@@ -13,9 +13,11 @@ class BookingsController < ApplicationController
       if @passenger
         #create new relationship for exist passenger
         BookingsPax.create(passenger_id: @passenger.id, booking_id: @booking.id)
+        ConfirmationMailer.confirmation_email(@passenger, @booking).deliver_now
       else
         #create new passenger and relationship
-        @booking.passengers.create(name: x[:name], email: x[:email])
+        pax = @booking.passengers.create(name: x[:name], email: x[:email])
+        ConfirmationMailer.confirmation_email(pax, @booking).deliver_now
       end
     end
   	redirect_to @booking

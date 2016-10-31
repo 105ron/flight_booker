@@ -9,7 +9,7 @@
 			<td><%= booking.id %></tdd>
 			<td><%= flight.number %></td>
 			<td><%= link_to pax.name, passenger_path(pax.id) %></td>
-			<td><%= pax.email %></td>
+			<td><%= pax.email.gsub(/.{0,8}@/, '#$#$#$#$@') %></td>
 		</tr>
 	<% end %>
 </table>
