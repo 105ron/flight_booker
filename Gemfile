@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#View emails in browser in development environment
+gem "letter_opener", :group => :development
+
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
