@@ -1,5 +1,5 @@
 class ConfirmationMailer < ApplicationMailer
-ActionMailer::Base.default :from => "Rails Airways <no-reply@railsairways.com>"
+
 
 
   def confirmation_email(passenger, booking)
